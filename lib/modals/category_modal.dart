@@ -4,7 +4,7 @@ import 'dart:typed_data';
 class CategoryModal {
   int? id;
   String? title;
-  Uint8List? image;
+  String? image;
 
   CategoryModal(
     this.id,
