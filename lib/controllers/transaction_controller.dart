@@ -7,11 +7,10 @@ class TransactionController extends GetxController {
   final RxList<TransactionModal> _allTransaction = <TransactionModal>[].obs;
   final RxList<TransactionModal> _searchTransaction = <TransactionModal>[].obs;
 
-  bool canEdit = false;
+  RxBool canEdit = false.obs;
 
   editTran() {
-    canEdit = !canEdit;
-    update();
+    canEdit(!canEdit.value);
   }
 
   TransactionController() {

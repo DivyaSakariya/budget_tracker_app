@@ -5,7 +5,7 @@ class TransactionModal {
   String? remarks;
   String? type;
   String? category;
-  String? amount;
+  double? amount;
   String? date;
   String? time;
 
@@ -29,7 +29,7 @@ class TransactionModal {
       data['Remarks'],
       data['Type'],
       data['Category'],
-      data['Amount'].toString(),
+      data['Amount'],
       data['Date'],
       data['Time'],
     );
