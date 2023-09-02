@@ -95,7 +95,7 @@ class TransactionComponent extends StatelessWidget {
                                 ),
                                 TextButton.icon(
                                   onPressed: () async {
-                                    int id = await transactionController.delete(
+                                    await transactionController.delete(
                                         id: transactionModal.id!);
 
                                     Get.snackbar("Deleted",

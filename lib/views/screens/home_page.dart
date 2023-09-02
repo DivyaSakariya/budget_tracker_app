@@ -1,3 +1,6 @@
+import 'package:budget_tracker_app/views/components/budget_component.dart';
+import 'package:budget_tracker_app/views/components/graph_component.dart';
+import 'package:budget_tracker_app/views/components/search_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,6 +25,9 @@ class HomePage extends StatelessWidget {
         controller: homeController.pageController,
         children: [
           TransactionComponent(),
+          GraphComponent(),
+          SearchComponent(),
+          BudgetComponent(),
         ],
       ),
       bottomNavigationBar: Obx(

@@ -2,6 +2,7 @@ import 'package:budget_tracker_app/views/components/add_category_component.dart'
 import 'package:budget_tracker_app/views/components/category_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'helpers/db_helper.dart';
 import 'views/screens/home_page.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        colorSchemeSeed: Colors.purple,
+        colorSchemeSeed: Colors.blue,
       ),
       getPages: [
         GetPage(
