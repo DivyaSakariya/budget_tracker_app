@@ -194,4 +194,8 @@ class DBHelper {
 
     return await database.rawUpdate(query, args);
   }
+
+  setBalance({required int amt}) {
+    database.rawUpdate("UPDATE TABLE $tableBalance SET $blnAmt = $amt");
+  }
 }

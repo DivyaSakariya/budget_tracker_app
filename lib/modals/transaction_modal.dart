@@ -5,7 +5,7 @@ class TransactionModal {
   String? remarks;
   String? type;
   String? category;
-  double? amount;
+  int? amount;
   String? date;
   String? time;
 

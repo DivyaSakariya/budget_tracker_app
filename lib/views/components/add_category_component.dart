@@ -43,9 +43,6 @@ class AddCategoryComponent extends StatelessWidget {
                     'EXPANSE': Text("EXPANSE"),
                   },
                   onValueChanged: (val) {
-                    if (transactionModal.type != 'EXPANSE') {
-                      transactionModal.type = 'INCOME';
-                    }
                     transactionModal.type = val!;
                     categoryController.selectType(catType: val);
                   },
@@ -163,13 +160,14 @@ class AddCategoryComponent extends StatelessWidget {
                       print("=====================");
                       print(double.parse(val));
                       print("=====================");
+                      transactionModal.amount = int.parse(val);
                       // transactionModal.amount = val;
-                      transactionModal.amount = double.parse(val);
+                      // transactionModal.amount = double.parse(val);
                     },
                     controller: amountController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: "Enter Amount",
+                      hintText: "Enter Amount (₹)",
                     ),
                   ),
                   const SizedBox(
@@ -225,6 +223,9 @@ class AddCategoryComponent extends StatelessWidget {
 
                       Get.snackbar("Successfully Transaction Added !!",
                           "Id: $id Category: ${transactionModal.category}");
+
+                      transactionController.init();
+                      Navigator.of(context).pop();
                     },
                     child: const Text("Save"),
                   ),

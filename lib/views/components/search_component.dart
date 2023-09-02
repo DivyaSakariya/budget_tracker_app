@@ -29,7 +29,7 @@ class SearchComponent extends StatelessWidget {
           ),
           Expanded(
             child: Obx(() {
-              return transactionController.searchTransaction.value.isNotEmpty
+              return transactionController.fetchAllTransactions.value.isNotEmpty
                   ? ListView.builder(
                       itemCount:
                           transactionController.searchTransaction.value.length,

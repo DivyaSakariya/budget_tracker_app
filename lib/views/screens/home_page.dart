@@ -35,9 +35,7 @@ class HomePage extends StatelessWidget {
           return BottomNavigationBar(
             onTap: (index) {
               homeController.onPageChange(index: index);
-              if (index == 0) {
-                transactionController.init();
-              }
+              if (index == 3) {}
             },
             currentIndex: homeController.getCurrentIndex,
             items: const [

@@ -41,55 +41,58 @@ class TransactionComponent extends StatelessWidget {
                           Get.dialog(
                             AlertDialog(
                               title: Text(transactionModal.remarks!),
-                              content: Obx(() {
-                                return Visibility(
-                                  visible: transactionController.canEdit.value,
-                                  child: Form(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        TextFormField(
-                                          initialValue:
-                                              transactionModal.category,
-                                        ),
-                                        TextFormField(
-                                          initialValue:
-                                              transactionModal.remarks,
-                                        ),
-                                        TextFormField(
-                                          initialValue: transactionModal.amount
-                                              .toString(),
-                                        ),
-                                        CupertinoSlidingSegmentedControl(
-                                          groupValue: transactionModal.type,
-                                          children: const {
-                                            'INCOME': Text("INCOME"),
-                                            'EXPANSE': Text("EXPANSE"),
-                                          },
-                                          onValueChanged: (val) {
-                                            transactionModal.type = val!;
-                                          },
-                                        ),
-                                        Row(
-                                          children: [
-                                            TextFormField(
-                                              initialValue:
-                                                  transactionModal.date,
-                                            ),
-                                            TextFormField(
-                                              initialValue:
-                                                  transactionModal.time,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              }),
+                              // content: Obx(() {
+                              //   return Visibility(
+                              //     visible: transactionController.canEdit.value,
+                              //     child: Form(
+                              //       child: Column(
+                              //         children: [
+                              //           TextFormField(
+                              //             initialValue:
+                              //                 transactionModal.category,
+                              //           ),
+                              //           TextFormField(
+                              //             initialValue:
+                              //                 transactionModal.remarks,
+                              //           ),
+                              //           TextFormField(
+                              //             initialValue: transactionModal.amount
+                              //                 .toString(),
+                              //           ),
+                              //           CupertinoSlidingSegmentedControl(
+                              //             groupValue: transactionModal.type,
+                              //             children: const {
+                              //               'INCOME': Text("INCOME"),
+                              //               'EXPANSE': Text("EXPANSE"),
+                              //             },
+                              //             onValueChanged: (val) {
+                              //               transactionModal.type = val!;
+                              //             },
+                              //           ),
+                              //           Row(
+                              //             children: [
+                              //               TextFormField(
+                              //                 initialValue:
+                              //                     transactionModal.date,
+                              //               ),
+                              //               TextFormField(
+                              //                 initialValue:
+                              //                     transactionModal.time,
+                              //               ),
+                              //             ],
+                              //           ),
+                              //         ],
+                              //       ),
+                              //     ),
+                              //   );
+                              // }),
                               actions: [
                                 ElevatedButton.icon(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    // transactionController.editTran();
+                                    Get.toNamed('/edit_transaction',
+                                        arguments: transactionModal);
+                                  },
                                   icon: const Icon(Icons.edit),
                                   label: const Text("Edit"),
                                 ),
@@ -114,8 +117,12 @@ class TransactionComponent extends StatelessWidget {
                         },
                         leading: Image.asset(img),
                         title: Text(transactionModal.remarks!),
+                        subtitle: Text(
+                            "${transactionModal.date} ${transactionModal.time}"),
                         trailing: Text(
-                          "${transactionModal.amount ?? ''}",
+                          transactionModal.type == "INCOME"
+                              ? "+₹${transactionModal.amount}"
+                              : "-₹${transactionModal.amount}",
                           style: TextStyle(
                             color: transactionModal.type == "INCOME"
                                 ? Colors.green

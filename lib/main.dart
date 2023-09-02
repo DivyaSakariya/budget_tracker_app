@@ -1,5 +1,6 @@
 import 'package:budget_tracker_app/views/components/add_category_component.dart';
 import 'package:budget_tracker_app/views/components/category_list.dart';
+import 'package:budget_tracker_app/views/components/edit_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,6 +41,12 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/category_list',
           page: () => CategoryList(),
+          transition: Transition.upToDown,
+          curve: Curves.easeInOut,
+        ),
+        GetPage(
+          name: '/edit_transaction',
+          page: () => EditTransaction(),
           transition: Transition.upToDown,
           curve: Curves.easeInOut,
         ),

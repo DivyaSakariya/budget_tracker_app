@@ -51,6 +51,7 @@ class CategoryController extends GetxController {
     if (pickDate != null) {
       String formattedDate =
           "${pickDate.day}/${pickDate.month}/${pickDate.year}";
+      // DateFormat("dd/MM/yyyy").format(pickDate);
       date(formattedDate);
     }
   }
