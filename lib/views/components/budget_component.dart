@@ -20,6 +20,7 @@ class BudgetComponent extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               const Text("Total Balance"),
               Text("₹${transactionController.totalBalance}"),

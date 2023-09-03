@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,6 +23,8 @@ class TransactionController extends GetxController {
     String currentDate = "${d.day}/${d.month}/${d.year}";
 
     date(currentDate);
+
+    // _allTransaction.sort((a,b) => a.time.hou)
   }
 
   init() async {
@@ -98,7 +98,7 @@ class TransactionController extends GetxController {
   calculateDateBalance() {
     dateBalance = fetchAllTransactions.fold(
       0.obs,
-          (sum, expense) {
+      (sum, expense) {
         DateTime d = DateTime.now();
         String date = "${d.day}/${d.month}/${d.year}";
 
