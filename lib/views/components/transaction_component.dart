@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/transaction_controller.dart';
-import '../../helpers/utlis/category_utlis.dart';
 import '../../modals/transaction_modal.dart';
+import '../../utils/category_utils.dart';
 
 class TransactionComponent extends StatelessWidget {
   TransactionComponent({super.key});
@@ -20,13 +20,12 @@ class TransactionComponent extends StatelessWidget {
       () {
         return Padding(
           padding: const EdgeInsets.all(16),
-          child: transactionController.fetchAllTransactions.value.isNotEmpty
+          child: transactionController.allTransaction.isNotEmpty
               ? ListView.builder(
-                  itemCount:
-                      transactionController.fetchAllTransactions.value.length,
+                  itemCount: transactionController.allTransaction.length,
                   itemBuilder: (context, index) {
                     TransactionModal transactionModal =
-                        transactionController.fetchAllTransactions.value[index];
+                        transactionController.allTransaction[index];
 
                     var image = allCategoryList.where((element) =>
                         element['title'] == transactionModal.category);
@@ -132,7 +131,7 @@ class TransactionComponent extends StatelessWidget {
                       ),
                     );
                   })
-              : transactionController.fetchAllTransactions.value.isEmpty
+              : transactionController.allTransaction.isEmpty
                   ? const Center(
                       child: Text("Yet No Transaction Added..!!"),
                     )

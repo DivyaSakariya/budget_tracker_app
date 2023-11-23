@@ -1,16 +1,26 @@
+// class BalanceModal {
+//   int id;
+//   int amount;
+//
+//   BalanceModal(
+//     this.id,
+//     this.amount,
+//   );
+//
+//   factory BalanceModal.fromMap({required Map data}) {
+//     return BalanceModal(
+//       data['id'],
+//       data['amount'],
+//     );
+//   }
+// }
+
 class BalanceModal {
-  int id;
-  int amount;
+  String name;
+  double cost;
 
-  BalanceModal(
-    this.id,
-    this.amount,
-  );
-
-  factory BalanceModal.fromMap({required Map data}) {
-    return BalanceModal(
-      data['id'],
-      data['amount'],
-    );
-  }
+  BalanceModal({
+    required this.name,
+    required this.cost,
+  });
 }

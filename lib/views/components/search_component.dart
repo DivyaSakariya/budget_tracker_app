@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/transaction_controller.dart';
-import '../../helpers/utlis/category_utlis.dart';
 import '../../modals/transaction_modal.dart';
+import '../../utils/category_utils.dart';
 
 class SearchComponent extends StatelessWidget {
   SearchComponent({super.key});
@@ -29,14 +29,14 @@ class SearchComponent extends StatelessWidget {
           ),
           Expanded(
             child: Obx(() {
-              return transactionController.fetchAllTransactions.value.isNotEmpty
+              return transactionController.allTransaction.isNotEmpty
                   ? ListView.builder(
                       itemCount:
-                          transactionController.searchTransaction.value.length,
+                          transactionController.searchTransaction.length,
                       itemBuilder: (context, index) {
                         TransactionModal transactionModal =
                             transactionController
-                                .searchTransaction.value[index];
+                                .searchTransaction[index];
 
                         var image = allCategoryList.where((element) =>
                             element['title'] == transactionModal.category);

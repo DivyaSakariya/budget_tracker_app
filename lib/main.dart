@@ -1,4 +1,4 @@
-import 'package:budget_tracker_app/views/components/add_category_component.dart';
+import 'package:budget_tracker_app/views/components/add_transaction_component.dart';
 import 'package:budget_tracker_app/views/components/category_list.dart';
 import 'package:budget_tracker_app/views/components/edit_transaction.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: '/add_category_component',
-          page: () => AddCategoryComponent(),
+          page: () => AddTransactionComponent(),
           transition: Transition.rightToLeft,
           curve: Curves.easeInOut,
         ),
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: '/edit_transaction',
-          page: () => EditTransaction(),
+          page: () => const EditTransaction(),
           transition: Transition.upToDown,
           curve: Curves.easeInOut,
         ),

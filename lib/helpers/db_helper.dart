@@ -163,6 +163,35 @@ class DBHelper {
     return allTransaction;
   }
 
+  Future<List<TransactionModal>> filterFetchedTransaction(
+      {required String type}) async {
+    String query = 'SELECT * FROM $tableTransaction WHERE $trnType = "$type"';
+    List allData = await database.rawQuery(query);
+
+    List<TransactionModal> allTransaction =
+        allData.map((e) => TransactionModal.fromMap(data: e)).toList();
+
+    return allTransaction;
+  }
+
+  Future getTotal({required String type}) async {
+    String query =
+        'SELECT SUM(amount) FROM $tableTransaction WHERE $trnType = "$type"';
+
+    var result = await database.rawQuery(query);
+
+    var value = result[0]["SUM(amount)"];
+    print(value);
+    return value;
+  }
+
+  Future<List<Map>> filterCategory({required String cate}) async {
+    String query = "SELECT * FROM $tableTransaction WHERE $trnCat = '$cate'";
+
+    List<Map> l1 = await database.rawQuery(query);
+    return l1;
+  }
+
   Future<int> deleteTransaction({required int id}) async {
     String query = "DELETE FROM $tableTransaction WHERE Id = $id";
 
